@@ -1,0 +1,47 @@
+employee = [
+    {
+        "name": "John Smiths",
+        "dni": "12345678",
+        "address": "Calle 1",
+        "city": "Lima",
+        "country": "Peru",
+        "zipCode": "12345",
+        "additionalComment": "",
+    },
+    {
+        "name": "Jane Doe",
+        "dni": "23456789",
+        "address": "Calle 2",
+        "city": "Lima",
+        "country": "Peru",
+        "zipCode": "12346",
+        "additionalComment": "",
+    },
+    {
+        "name": "Bob Johnson",
+        "dni": "34567890",
+        "address": "Calle 3",
+        "city": "Lima",
+        "country": "Peru",
+        "zipCode": "12347",
+        "additionalComment": "",
+    },
+    {
+        "name": "Alice Williams",
+        "dni": "45678901",
+        "address": "Calle 4",
+        "city": "Lima",
+        "country": "Peru",
+        "zipCode": "12348",
+        "additionalComment": "",
+    },
+    {
+        "name": "Charlie Brown",
+        "dni": "56789012",
+        "address": "Calle 5",
+        "city": "Lima",
+        "country": "Peru",
+        "zipCode": "12349",
+        "additionalComment": "",
+    }
+]
