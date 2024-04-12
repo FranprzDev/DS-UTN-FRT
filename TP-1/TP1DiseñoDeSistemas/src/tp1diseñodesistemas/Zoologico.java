@@ -15,6 +15,14 @@ public class Zoologico {
     private ArrayList<Sector> listaSectores;
     
     //Agregar animal
+    
+    public void calcularComida(Alimentacion alimentacion){
+    float comida = 0;
+            for (Sector s : listaSectores) {
+                if(s.getAlimentacion()== alimentacion)
+                comida = comida + s.calcularComida();
+            }
+}
     //Calcular comida total
     //Calcular comida carnivoros
     //Calcular comida herbivoros

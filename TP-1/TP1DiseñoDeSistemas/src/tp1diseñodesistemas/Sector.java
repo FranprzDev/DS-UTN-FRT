@@ -15,11 +15,11 @@ public class Sector {
     private ArrayList<Animal> listaAnimales;
     private Empleado encargado;
     private float comidaSector;
-    private float latitud;
-    private float longitud;
+    private double latitud;
+    private double longitud;
     private Alimentacion alimentacion;
 
-    public Sector(int numero, float latitud, float longitud, Alimentacion alimentacion) {
+    public Sector(int numero, double latitud, double longitud, Alimentacion alimentacion) {
         this.numero = numero;
         this.latitud = latitud;
         this.longitud = longitud;
@@ -67,7 +67,7 @@ public class Sector {
         this.comidaSector = comidaSector;
     }
 
-    public float getLatitud() {
+    public double getLatitud() {
         return latitud;
     }
 
@@ -75,7 +75,7 @@ public class Sector {
         this.latitud = latitud;
     }
 
-    public float getLongitud() {
+    public double getLongitud() {
         return longitud;
     }
 

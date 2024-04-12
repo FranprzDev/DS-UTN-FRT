@@ -36,7 +36,8 @@ public class TP1DiseñoDeSistemas {
         Sector sector2 = new Sector(2, 11.5437, 64.5766, Alimentacion.HERBIVORO);
         Sector sector3 = new Sector(3, 90.5437, 65.5766, Alimentacion.CARNIVORO);
                 
-        //hacer visible ventana
+        VentanaZoo ventana = new VentanaZoo();
+        ventana.setVisible(true);
         
     }
     
