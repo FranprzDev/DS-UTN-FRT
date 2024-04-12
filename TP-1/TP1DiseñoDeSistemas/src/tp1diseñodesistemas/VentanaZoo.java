@@ -8,6 +8,13 @@ package tp1diseñodesistemas;
  *
  * @author Ronald
  */
+
+//agregar metodo que cree paneles dinamicos segun la cantidad de sectores
+
+//agregar funcionalidades a ambos botones
+
+//crear ventana donde se puedan poner los datos del animal que agregamos
+
 public class VentanaZoo extends javax.swing.JFrame {
 
     /**

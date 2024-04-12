@@ -13,7 +13,7 @@ public class Carnivoro extends Animal{
 
     public Carnivoro(float porcentaje, int edad, float peso, Pais pais, Sector s, Especie esp) {
         super(edad, peso, pais, s, esp);
-        this.porcentaje = porcentaje;
+        this.porcentaje = esp.getPorcentaje();
         super.setAlimento(this.calcularAlimento(peso,porcentaje));
     }
     

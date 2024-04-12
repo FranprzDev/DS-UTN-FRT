@@ -10,8 +10,14 @@ package tp1diseñodesistemas;
  */
 public class Especie {
     private String nombre;
-    //enum herbivoro o carnivoro
+    private Alimentacion alimentacion;
     private float porcentaje;
+
+    public Especie(String nombre, float porcentaje, Alimentacion alimentacion) {
+        this.nombre = nombre;
+        this.porcentaje = porcentaje;
+        this.alimentacion = alimentacion;
+    }
 
     public String getNombre() {
         return nombre;
@@ -27,6 +33,14 @@ public class Especie {
 
     public void setPorcentaje(float porcentaje) {
         this.porcentaje = porcentaje;
+    }
+
+    public Alimentacion getAlimentacion() {
+        return alimentacion;
+    }
+
+    public void setAlimentacion(Alimentacion alimentacion) {
+        this.alimentacion = alimentacion;
     }
     
     

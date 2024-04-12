@@ -13,16 +13,18 @@ import java.util.ArrayList;
 public class Sector {
     private int numero;
     private ArrayList<Animal> listaAnimales;
-    private Empleado e;
+    private Empleado encargado;
     private float comidaSector;
     private float latitud;
     private float longitud;
+    private Alimentacion alimentacion;
 
-    public Sector(int numero, float latitud, float longitud) {
+    public Sector(int numero, float latitud, float longitud, Alimentacion alimentacion) {
         this.numero = numero;
-        this.listaAnimales = new ArrayList<>();
         this.latitud = latitud;
         this.longitud = longitud;
+        this.alimentacion = alimentacion;
+        this.listaAnimales = new ArrayList<>();
     }
     
     //Calcular comida sector (sumando a la comida de cada animal
@@ -49,12 +51,12 @@ public class Sector {
         this.listaAnimales = listaAnimales;
     }
 
-    public Empleado getEmpleado() {
-        return e;
+    public Empleado getEncargado() {
+        return encargado;
     }
 
-    public void setEmpleado(Empleado e) {
-        this.e = e;
+    public void setEncargado(Empleado encargado) {
+        this.encargado = encargado;
     }
 
     public float getComidaSector() {
@@ -80,7 +82,13 @@ public class Sector {
     public void setLongitud(float longitud) {
         this.longitud = longitud;
     }
-    
-    
+
+    public Alimentacion getAlimentacion() {
+        return alimentacion;
+    }
+
+    public void setAlimentacion(Alimentacion alimentacion) {
+        this.alimentacion = alimentacion;
+    }
     
 }

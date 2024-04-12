@@ -31,7 +31,7 @@ public class Zoologico {
         this.listaEmpleados.add(e);
     }
     
-    public void asignarEmpleado(int numeroSector, int dniEmpleado){
+    /*public void asignarEmpleado(int numeroSector, int dniEmpleado){
         int i=0;
         int j=0;
         Sector s = null;
@@ -50,12 +50,12 @@ public class Zoologico {
         
             if(j<listaEmpleados.size()){
                 e = listaEmpleados.get(j);
-                s.setEmpleado(e);
+                s.setEncargado(e);
             }
             
             else{
                 System.out.println("Empleado no encontrado");
             }
         }
-    }
+    }*/
 }
