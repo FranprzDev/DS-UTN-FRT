@@ -14,17 +14,39 @@ public class Animal {
     private Pais pais;
     private Sector s;
     private Especie esp;
+    private float alimento;
 
     public Animal(){
     }
     
-    public Animal(int edad, float peso, Pais pais, Sector s) {
+    public Animal(int edad, float peso, Pais pais, Sector s, Especie esp) {
         this.edad = edad;
         this.peso = peso;
         this.pais = pais;
+        this.esp = esp;
         this.s = s;
     }
 
+    public float calcularAlimento(float peso, float x){
+        return alimento;
+    }
+    
+    public Especie getEsp() {
+        return esp;
+    }
+
+    public void setEsp(Especie esp) {
+        this.esp = esp;
+    }
+
+    public float getAlimento() {
+        return alimento;
+    }
+
+    public void setAlimento(float alimento) {
+        this.alimento = alimento;
+    }
+    
     public int getEdad() {
         return edad;
     }
