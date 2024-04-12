@@ -13,6 +13,7 @@ public class Animal {
     private float peso;
     private Pais pais;
     private Sector s;
+    private Especie esp;
 
     public Animal(){
     }
