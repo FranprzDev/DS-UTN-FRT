@@ -8,11 +8,11 @@ package tp1diseñodesistemas;
  *
  * @author Ronald
  */
-public class Carnivoro extends Mamifero{
+public class Carnivoro extends Animal{
     private float porcentaje;
 
-    public Carnivoro(float porcentaje, Especie esp, int edad, float peso, Pais pais, Sector s) {
-        super(esp, edad, peso, pais, s);
+    public Carnivoro(float porcentaje, int edad, float peso, Pais pais, Sector s, Especie esp) {
+        super(edad, peso, pais, s, esp);
         this.porcentaje = porcentaje;
         super.setAlimento(this.calcularAlimento(peso,porcentaje));
     }

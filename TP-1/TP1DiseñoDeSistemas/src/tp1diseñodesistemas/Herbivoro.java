@@ -8,15 +8,15 @@ package tp1diseñodesistemas;
  *
  * @author Ronald
  */
-public class Herbivoro extends Mamifero{
+public class Herbivoro extends Animal{
     private float valorFijo;
 
-    public Herbivoro(float valorFijo, Especie esp, int edad, float peso, Pais pais, Sector s) {
-        super(esp, edad, peso, pais, s);
+    public Herbivoro(float valorFijo, int edad, float peso, Pais pais, Sector s, Especie esp) {
+        super(edad, peso, pais, s, esp);
         this.valorFijo = valorFijo;
         super.setAlimento(this.calcularAlimento(peso,valorFijo));
     }
-
+    
     
     @Override
     public float calcularAlimento(float peso, float valorFijo){

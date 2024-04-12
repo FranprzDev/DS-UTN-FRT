@@ -14,7 +14,7 @@ public class Sector {
     private int numero;
     private ArrayList<Animal> listaAnimales;
     private Empleado e;
-    private float comidaTotal;
+    private float comidaSector;
     private float latitud;
     private float longitud;
 
@@ -24,6 +24,10 @@ public class Sector {
         this.latitud = latitud;
         this.longitud = longitud;
     }
+    
+    //Calcular comida sector (sumando a la comida de cada animal
+    //enum que dicta el tipo de sector (herbivoros o carnivoros)
+    //creacion de paneles dinamicos con la creacion del sector
     
     public void agregarAnimal(Animal a){
         this.listaAnimales.add(a);
@@ -53,12 +57,12 @@ public class Sector {
         this.e = e;
     }
 
-    public float getComidaTotal() {
-        return comidaTotal;
+    public float getComidaSector() {
+        return comidaSector;
     }
 
-    public void setComidaTotal(float comidaTotal) {
-        this.comidaTotal = comidaTotal;
+    public void setComidaSector(float comidaSector) {
+        this.comidaSector = comidaSector;
     }
 
     public float getLatitud() {

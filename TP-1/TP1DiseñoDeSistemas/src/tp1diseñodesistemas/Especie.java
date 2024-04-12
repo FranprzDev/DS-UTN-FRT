@@ -9,5 +9,25 @@ package tp1diseñodesistemas;
  * @author Ronald
  */
 public class Especie {
+    private String nombre;
+    //enum herbivoro o carnivoro
+    private float porcentaje;
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public float getPorcentaje() {
+        return porcentaje;
+    }
+
+    public void setPorcentaje(float porcentaje) {
+        this.porcentaje = porcentaje;
+    }
+    
     
 }

@@ -14,6 +14,11 @@ public class Zoologico {
     private ArrayList<Empleado> listaEmpleados;
     private ArrayList<Sector> listaSectores;
     
+    //Agregar animal
+    //Calcular comida total
+    //Calcular comida carnivoros
+    //Calcular comida herbivoros
+    
     public Zoologico() {
         this.listaEmpleados = new ArrayList<>();
         this.listaSectores = new ArrayList<>();
@@ -49,7 +54,7 @@ public class Zoologico {
             }
             
             else{
-                System.out.println("Medico no encontrado");
+                System.out.println("Empleado no encontrado");
             }
         }
     }
