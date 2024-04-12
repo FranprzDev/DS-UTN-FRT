@@ -4,6 +4,8 @@
  */
 package tp1diseñodesistemas;
 
+import static java.lang.String.valueOf;
+
 /**
  *
  * @author Ronald
@@ -22,6 +24,16 @@ public class VentanaZoo extends javax.swing.JFrame {
      */
     public VentanaZoo() {
         initComponents();
+        zoo.agregarEmpleado(juan);
+        zoo.agregarEmpleado(gonchi);
+        zoo.agregarEmpleado(flor);
+        zoo.agregarSector(sector1);
+        zoo.agregarSector(sector2);
+        zoo.agregarSector(sector3);
+        
+        sector3.agregarAnimal(leon1);
+        sector3.agregarAnimal(leon2);
+        sector2.agregarAnimal(elefante1);
     }
 
     /**
@@ -50,6 +62,11 @@ public class VentanaZoo extends javax.swing.JFrame {
         botonAgregarAnimal.setText("Agregar Animal");
 
         botonCalcularComida.setText("Calcular Comida");
+        botonCalcularComida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCalcularComidaActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setText("Kgs Carnivoros");
@@ -137,6 +154,21 @@ public class VentanaZoo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void botonCalcularComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCalcularComidaActionPerformed
+        // TODO add your handling code here:
+        float comidaTotal;
+        float comidaHer;
+        float comidaCar;
+        
+        comidaCar = zoo.calcularComida(Alimentacion.CARNIVORO);
+        comidaHer = zoo.calcularComida(Alimentacion.HERBIVORO);
+        comidaTotal = comidaCar + comidaHer;
+        
+        totalComidaHerbivoros.setText(Float.toString(comidaHer));
+        totalComidaCarnivoros.setText(Float.toString(comidaCar));
+        totalComida.setText(Float.toString(comidaTotal));
+    }//GEN-LAST:event_botonCalcularComidaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -171,6 +203,30 @@ public class VentanaZoo extends javax.swing.JFrame {
             }
         });
     }
+    
+        Pais arg = new Pais("Argentina", "ARG");
+        Pais bra = new Pais("Brasil","BRA");
+        Pais uru = new Pais("Uruguay", "URU");
+        Pais chi = new Pais("Chile", "CHI");
+        Especie leon = new Especie("León", 30, Alimentacion.CARNIVORO);
+        Especie lobo = new Especie("Lobo", 20, Alimentacion.CARNIVORO);
+        Especie jirafa = new Especie("Jirafa", 0, Alimentacion.HERBIVORO);
+        Especie elefante = new Especie("Elefante",0,Alimentacion.HERBIVORO);
+        Zoologico zoo = new Zoologico();
+        Empleado juan = new Empleado("Juan", "Balcarce 500", 40900987);
+        Empleado gonchi = new Empleado("Gonzalo", "Juan B Teran 690", 47892000);
+        Empleado flor = new Empleado("Florencia Noelia", "Rio Sali 777", 44032111);
+        Sector sector1 = new Sector(1, 80.5437, 66.5766, Alimentacion.CARNIVORO);
+        Sector sector2 = new Sector(2, 11.5437, 64.5766, Alimentacion.HERBIVORO);
+        Sector sector3 = new Sector(3, 90.5437, 65.5766, Alimentacion.CARNIVORO);
+        Carnivoro leon1 = new Carnivoro(15, 90000, chi, sector3, leon);
+        Carnivoro leon2 = new Carnivoro(5, 400, arg, sector3, leon);
+        
+        Herbivoro elefante1 = new Herbivoro(60, 800, 15, chi, sector2, elefante);
+        
+        
+           
+        
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonAgregarAnimal;

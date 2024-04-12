@@ -8,7 +8,7 @@ package tp1diseñodesistemas;
  *
  * @author Ronald
  */
-public class Animal {
+public abstract class Animal {
     private int edad;
     private float peso;
     private Pais pais;
