@@ -17,20 +17,23 @@ public class Controlador {
     static Alimentacion key;
     
     static VentanaZoologico vzoo = new VentanaZoologico();
-    static VentanaZoo vz = new VentanaZoo();
     static VentanaTipo vt = new VentanaTipo();
     static VentanaAnimales van = new VentanaAnimales();
     
  /*---------------------------------------------------------------------------------------------*/    
     public static void mostrarVentanaZoo(){
-        actualizar();
+        vzoo.agregarPaneles(zoo.getListaSectores());
         vzoo.setVisible(true);
     }
     public static void ocultarVentanaZoo(){vzoo.dispose();}
     
-    public static void actualizar(){
+    public static void reiniciarVentanaZoo() {
+        vzoo.dispose(); // Cierra la ventana actual
+        vzoo = new VentanaZoologico(); // Crea una nueva instancia de la ventana
         vzoo.agregarPaneles(zoo.getListaSectores());
+        vzoo.setVisible(true); // Muestra la nueva ventana
     }
+
     
     public static void eventoAgregarAnimal(){
         ocultarVentanaZoo();
@@ -76,6 +79,7 @@ public class Controlador {
       cargarPaises();
       cargarEspecies();
       cargarSectoresDisp();
+      van.ponerEnBlanco();
       van.setVisible(true);
     }
   public static void ocultarVentanaAnimales(){van.setVisible(false);}
@@ -148,10 +152,8 @@ public class Controlador {
          zoo.getListaSectores().get(iSector).agregarAnimal(h);
      }
      
-     vzoo.agregarPaneles(zoo.getListaSectores());
-     
      ocultarVentanaAnimales();
-     mostrarVentanaZoo();
+     reiniciarVentanaZoo();
   }    
   
  /*---------------------------------------------------------------------------------------------*/    
@@ -160,10 +162,10 @@ public class Controlador {
         zoo.agregarPais(arg);
         Pais bra = new Pais("Brasil","BRA");
         zoo.agregarPais(bra);
-        Pais uru = new Pais("Uruguay", "URU");
-        zoo.agregarPais(uru);
-        Pais chi = new Pais("Chile", "CHI");
-        zoo.agregarPais(chi);
+        Pais per = new Pais("Peru","PER");
+        zoo.agregarPais(per);
+        Pais kor = new Pais("Korea", "KOR");
+        zoo.agregarPais(kor);
         
         Especie leon = new Especie("León", 30, Alimentacion.CARNIVORO);
         zoo.agregarEspecie(leon);
@@ -188,9 +190,9 @@ public class Controlador {
         Sector sector3 = new Sector(3, juan, 90.5437, 65.5766, 30, Alimentacion.CARNIVORO);
         zoo.agregarSector(sector3);
         
-        Carnivoro leon1 = new Carnivoro(15, 90000, chi, sector3, leon);
+        Carnivoro leon1 = new Carnivoro(15, 90000, per, sector3, leon);
         Carnivoro leon2 = new Carnivoro(5, 400, arg, sector3, leon);
-        Herbivoro elefante1 = new Herbivoro(60, 800, 15, chi, sector2, elefante);
+        Herbivoro elefante1 = new Herbivoro(60, 800, 15, kor, sector2, elefante);
       
         sector3.agregarAnimal(leon1);
         sector3.agregarAnimal(leon2);

@@ -78,11 +78,7 @@ public class VentanaZoologico extends JFrame {
         add(panelLateral, BorderLayout.EAST);
     }
     
-    
-    
     public void agregarPaneles(ArrayList<Sector> listaSectores){
-        revalidate();
-        repaint();
         JPanel panelPrincipal = new JPanel(new GridLayout(listaSectores.size(), 1));
         // Crear y agregar paneles para cada animal en la lista
         for (Sector s : listaSectores) {

@@ -69,6 +69,12 @@ public class VentanaAnimales extends JFrame {
         botonAgregarAnimal.addActionListener(animal);
     }
     
+    public void ponerEnBlanco(){
+        campoValorFijo.setText("");
+        campoEdad.setText("");
+        campoPeso.setText("");
+    }
+    
     public void mostrarValorFijo() {
         labelValorFijo.setVisible(true);
         campoValorFijo.setVisible(true);
