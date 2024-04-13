@@ -16,12 +16,15 @@ public class Sector {
     private Empleado encargado;
     private double latitud;
     private double longitud;
+    private int maxCantidad;
     private Alimentacion alimentacion;
 
-    public Sector(int numero, double latitud, double longitud, Alimentacion alimentacion) {
+    public Sector(int numero, Empleado encargado, double latitud, double longitud, int maxCantidad, Alimentacion alimentacion) {
         this.numero = numero;
+        this.encargado = encargado; 
         this.latitud = latitud;
         this.longitud = longitud;
+        this.maxCantidad = maxCantidad;
         this.alimentacion = alimentacion;
         this.listaAnimales = new ArrayList<>();
     }
@@ -37,7 +40,10 @@ public class Sector {
     }
     
     public void agregarAnimal(Animal a){
-        this.listaAnimales.add(a);
+        if(a.getEsp().getAlimentacion()==this.alimentacion)
+        {
+             this.listaAnimales.add(a);
+        }
     }
     
     public int getNumero() {
@@ -86,6 +92,14 @@ public class Sector {
 
     public void setAlimentacion(Alimentacion alimentacion) {
         this.alimentacion = alimentacion;
+    }
+
+    public int getMaxCantidad() {
+        return maxCantidad;
+    }
+
+    public void setMaxCantidad(int maxCantidad) {
+        this.maxCantidad = maxCantidad;
     }
     
 }

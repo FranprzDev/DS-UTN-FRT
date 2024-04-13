@@ -13,6 +13,8 @@ import java.util.ArrayList;
 public class Zoologico {
     private ArrayList<Empleado> listaEmpleados;
     private ArrayList<Sector> listaSectores;
+    private ArrayList<Pais> listaPaises;
+    private ArrayList<Especie> listaEspecies;
     
     //Agregar animal
     
@@ -28,6 +30,8 @@ public class Zoologico {
     public Zoologico() {
         this.listaEmpleados = new ArrayList<>();
         this.listaSectores = new ArrayList<>();
+        this.listaEspecies = new ArrayList<>();
+        this.listaPaises = new ArrayList<>();
     }
     
     public void agregarSector(Sector s){
@@ -36,36 +40,12 @@ public class Zoologico {
     public void agregarEmpleado(Empleado e){
         this.listaEmpleados.add(e);
     }
-    
-    
-    
-    /*public void asignarEmpleado(int numeroSector, int dniEmpleado){
-        int i=0;
-        int j=0;
-        Sector s = null;
-        Empleado e = null;
-        
-        while(i<listaSectores.size() && this.listaSectores.get(i).getNumero() != numeroSector){   
-            i++;
-        }
-        
-        if(i<listaSectores.size()){
-            s = listaSectores.get(i);
-            
-            while(j<listaEmpleados.size() && this.listaEmpleados.get(j).getDni() != dniEmpleado){
-                j++;
-            }
-        
-            if(j<listaEmpleados.size()){
-                e = listaEmpleados.get(j);
-                s.setEncargado(e);
-            }
-            
-            else{
-                System.out.println("Empleado no encontrado");
-            }
-        }
-    }*/
+    public void agregarPais(Pais p){
+        this.listaPaises.add(p);
+    }
+    public void agregarEspecie(Especie esp){
+        this.listaEspecies.add(esp);
+    }
 
     public ArrayList<Empleado> getListaEmpleados() {
         return listaEmpleados;
@@ -73,5 +53,13 @@ public class Zoologico {
 
     public ArrayList<Sector> getListaSectores() {
         return listaSectores;
+    }
+
+    public ArrayList<Pais> getListaPaises() {
+        return listaPaises;
+    }
+
+    public ArrayList<Especie> getListaEspecies() {
+        return listaEspecies;
     }
 }

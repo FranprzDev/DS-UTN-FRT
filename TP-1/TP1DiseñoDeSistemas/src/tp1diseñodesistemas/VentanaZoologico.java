@@ -81,13 +81,14 @@ public class VentanaZoologico extends JFrame {
     
     
     public void agregarPaneles(ArrayList<Sector> listaSectores){
-        JPanel panelPrincipal = new JPanel(new GridLayout(listaSectores.size(), 1)); // GridLayout con un panel por animal
-
+        revalidate();
+        repaint();
+        JPanel panelPrincipal = new JPanel(new GridLayout(listaSectores.size(), 1));
         // Crear y agregar paneles para cada animal en la lista
         for (Sector s : listaSectores) {
             String especies = "";
             int cont=0;
-            JPanel panelSector = new JPanel(new GridLayout(4, 1)); // GridLayout de 1 fila y 4 columnas para las etiquetas
+            JPanel panelSector = new JPanel(new GridLayout(5, 1));
             panelSector.setBorder(BorderFactory.createLineBorder(Color.BLACK));
             
             JLabel labelNumero = new JLabel("Número: " + s.getNumero());
@@ -97,22 +98,37 @@ public class VentanaZoologico extends JFrame {
                 cont+=1;
             }
             JLabel labelEspecies = new JLabel("Especie: " + especies);
-            JLabel labelCantidad = new JLabel("Cantidad: " + cont );
+            JLabel labelEncargado = new JLabel("Encargado: " + s.getEncargado().getNombre());
+            JLabel labelCantidad = new JLabel("Cantidad: " + cont + " / " + s.getMaxCantidad());
             JLabel labelUbicacion = new JLabel("Ubicación: " + s.getLatitud() + " , " + s.getLongitud());
 
             panelSector.add(labelNumero);
+            panelSector.add(labelEncargado);
             panelSector.add(labelEspecies);
             panelSector.add(labelCantidad);
             panelSector.add(labelUbicacion);
             
+            
             panelSector.setPreferredSize(new Dimension(250, 80));
             
-            panelPrincipal.add(panelSector);
-        }
+            switch(s.getAlimentacion()){
+                case HERBIVORO ->  {
+                    panelSector.setBackground(Color.GREEN);
+                }
+                case CARNIVORO ->  {
+                    panelSector.setBackground(Color.YELLOW);
+                }
+            }
+            
+            if(cont==0){
+                panelSector.setBackground(Color.GRAY);
+            }
+                panelPrincipal.add(panelSector);
+            }
 
         add(panelPrincipal, BorderLayout.WEST);
     }
-
+    
     public void setLabelNumCarnivoros(String x) {
         labelNumCarnivoros.setText(x);
     }

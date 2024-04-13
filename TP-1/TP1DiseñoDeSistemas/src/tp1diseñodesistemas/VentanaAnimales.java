@@ -5,6 +5,8 @@
 package tp1diseñodesistemas;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Arrays;
 
 /**
@@ -35,20 +37,17 @@ public class VentanaAnimales extends JFrame {
         add(campoEdad);
 
         labelPais = new JLabel("País:");
-        String[] paises = {"País 1", "País 2", "País 3"}; // Ejemplo de opciones para el JComboBox de países
-        comboBoxPais = new JComboBox<>(paises);
+        comboBoxPais = new JComboBox<>();
         add(labelPais);
         add(comboBoxPais);
 
         labelSector = new JLabel("Sector:");
-        String[] sectores = {"Sector 1", "Sector 2", "Sector 3"}; // Ejemplo de opciones para el JComboBox de sectores
-        comboBoxSector = new JComboBox<>(sectores);
+        comboBoxSector = new JComboBox<>();
         add(labelSector);
         add(comboBoxSector);
 
         labelEspecie = new JLabel("Especie:");
-        String[] especies = {"Especie 1", "Especie 2", "Especie 3"}; // Ejemplo de opciones para el JComboBox de especies
-        comboBoxEspecie = new JComboBox<>(especies);
+        comboBoxEspecie = new JComboBox<>();
         add(labelEspecie);
         add(comboBoxEspecie);
         
@@ -59,6 +58,15 @@ public class VentanaAnimales extends JFrame {
         
         botonAgregarAnimal = new JButton("Añadir animal");
         add(botonAgregarAnimal);
+        
+        ActionListener animal = new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent ae){
+                Controlador.eventoAgregarNuevo();
+            }
+        };
+        
+        botonAgregarAnimal.addActionListener(animal);
     }
     
     public void mostrarValorFijo() {
@@ -70,4 +78,30 @@ public class VentanaAnimales extends JFrame {
         labelValorFijo.setVisible(false);
         campoValorFijo.setVisible(false);
     }
+
+    public JComboBox<String> getComboBoxPais() {
+        return comboBoxPais;
+    }
+
+    public JComboBox<String> getComboBoxSector() {
+        return comboBoxSector;
+    }
+
+    public JComboBox<String> getComboBoxEspecie() {
+        return comboBoxEspecie;
+    }
+
+    public JTextField getCampoPeso() {
+        return campoPeso;
+    }
+
+    public JTextField getCampoEdad() {
+        return campoEdad;
+    }
+
+    public JTextField getCampoValorFijo() {
+        return campoValorFijo;
+    }
+    
+    
 }
