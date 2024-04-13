@@ -5,6 +5,7 @@
 package tp1diseñodesistemas;
 
 import static java.lang.String.valueOf;
+import javax.swing.JLabel;
 
 /**
  *
@@ -24,16 +25,7 @@ public class VentanaZoo extends javax.swing.JFrame {
      */
     public VentanaZoo() {
         initComponents();
-        zoo.agregarEmpleado(juan);
-        zoo.agregarEmpleado(gonchi);
-        zoo.agregarEmpleado(flor);
-        zoo.agregarSector(sector1);
-        zoo.agregarSector(sector2);
-        zoo.agregarSector(sector3);
         
-        sector3.agregarAnimal(leon1);
-        sector3.agregarAnimal(leon2);
-        sector2.agregarAnimal(elefante1);
     }
 
     /**
@@ -60,6 +52,11 @@ public class VentanaZoo extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         botonAgregarAnimal.setText("Agregar Animal");
+        botonAgregarAnimal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAgregarAnimalActionPerformed(evt);
+            }
+        });
 
         botonCalcularComida.setText("Calcular Comida");
         botonCalcularComida.addActionListener(new java.awt.event.ActionListener() {
@@ -71,17 +68,20 @@ public class VentanaZoo extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setText("Kgs Carnivoros");
 
+        totalComidaCarnivoros.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         totalComidaCarnivoros.setText("0");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("Kgs Herbivoros");
 
+        totalComidaHerbivoros.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         totalComidaHerbivoros.setText("0");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Kgs Total");
 
+        totalComida.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         totalComida.setText("0");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -89,28 +89,23 @@ public class VentanaZoo extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(botonAgregarAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(botonCalcularComida))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(botonCalcularComida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(botonAgregarAnimal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(4, 4, 4))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(totalComidaCarnivoros)
-                        .addGap(60, 60, 60))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(totalComidaCarnivoros, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(totalComidaHerbivoros, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(totalComida, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18))))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(totalComidaHerbivoros)
-                    .addComponent(totalComida))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -123,7 +118,7 @@ public class VentanaZoo extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(totalComidaCarnivoros)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(12, 12, 12)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(totalComidaHerbivoros)
@@ -138,10 +133,10 @@ public class VentanaZoo extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(445, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(408, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
+                .addGap(59, 59, 59))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,19 +151,28 @@ public class VentanaZoo extends javax.swing.JFrame {
 
     private void botonCalcularComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCalcularComidaActionPerformed
         // TODO add your handling code here:
-        float comidaTotal;
-        float comidaHer;
-        float comidaCar;
-        
-        comidaCar = zoo.calcularComida(Alimentacion.CARNIVORO);
-        comidaHer = zoo.calcularComida(Alimentacion.HERBIVORO);
-        comidaTotal = comidaCar + comidaHer;
-        
-        totalComidaHerbivoros.setText(Float.toString(comidaHer));
-        totalComidaCarnivoros.setText(Float.toString(comidaCar));
-        totalComida.setText(Float.toString(comidaTotal));
+        Controlador.eventoCalcularComida();
     }//GEN-LAST:event_botonCalcularComidaActionPerformed
 
+    private void botonAgregarAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarAnimalActionPerformed
+        // TODO add your handling code here:
+        Controlador.eventoAgregarAnimal();
+    }//GEN-LAST:event_botonAgregarAnimalActionPerformed
+
+    public void setTotalComida(String x) {
+        totalComida.setText(x);
+    }
+
+    public void setTotalComidaCarnivoros(String x) {
+        totalComidaCarnivoros.setText(x);
+    }
+
+    public void setTotalComidaHerbivoros(String x) {
+        totalComidaHerbivoros.setText(x);
+    }
+
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -203,29 +207,6 @@ public class VentanaZoo extends javax.swing.JFrame {
             }
         });
     }
-    
-        Pais arg = new Pais("Argentina", "ARG");
-        Pais bra = new Pais("Brasil","BRA");
-        Pais uru = new Pais("Uruguay", "URU");
-        Pais chi = new Pais("Chile", "CHI");
-        Especie leon = new Especie("León", 30, Alimentacion.CARNIVORO);
-        Especie lobo = new Especie("Lobo", 20, Alimentacion.CARNIVORO);
-        Especie jirafa = new Especie("Jirafa", 0, Alimentacion.HERBIVORO);
-        Especie elefante = new Especie("Elefante",0,Alimentacion.HERBIVORO);
-        Zoologico zoo = new Zoologico();
-        Empleado juan = new Empleado("Juan", "Balcarce 500", 40900987);
-        Empleado gonchi = new Empleado("Gonzalo", "Juan B Teran 690", 47892000);
-        Empleado flor = new Empleado("Florencia Noelia", "Rio Sali 777", 44032111);
-        Sector sector1 = new Sector(1, 80.5437, 66.5766, Alimentacion.CARNIVORO);
-        Sector sector2 = new Sector(2, 11.5437, 64.5766, Alimentacion.HERBIVORO);
-        Sector sector3 = new Sector(3, 90.5437, 65.5766, Alimentacion.CARNIVORO);
-        Carnivoro leon1 = new Carnivoro(15, 90000, chi, sector3, leon);
-        Carnivoro leon2 = new Carnivoro(5, 400, arg, sector3, leon);
-        
-        Herbivoro elefante1 = new Herbivoro(60, 800, 15, chi, sector2, elefante);
-        
-        
-           
         
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

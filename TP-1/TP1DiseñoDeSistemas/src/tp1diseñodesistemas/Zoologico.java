@@ -37,6 +37,8 @@ public class Zoologico {
         this.listaEmpleados.add(e);
     }
     
+    
+    
     /*public void asignarEmpleado(int numeroSector, int dniEmpleado){
         int i=0;
         int j=0;
@@ -64,4 +66,12 @@ public class Zoologico {
             }
         }
     }*/
+
+    public ArrayList<Empleado> getListaEmpleados() {
+        return listaEmpleados;
+    }
+
+    public ArrayList<Sector> getListaSectores() {
+        return listaSectores;
+    }
 }

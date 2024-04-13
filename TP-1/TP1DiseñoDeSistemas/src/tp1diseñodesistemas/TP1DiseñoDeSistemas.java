@@ -4,6 +4,8 @@
  */
 package tp1diseñodesistemas;
 
+import static tp1diseñodesistemas.Controlador.zoo;
+
 /**
  *
  * @author Ronald
@@ -15,11 +17,8 @@ public class TP1DiseñoDeSistemas {
      */
     public static void main(String[] args) {
         // TODO code application logic here 
-        VentanaZoo ventana = new VentanaZoo();
-        ventana.setVisible(true);
-        
-        
-  
+        Controlador.llenar();
+        Controlador.mostrarVentanaZoo();
         
     }
     
